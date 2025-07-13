@@ -1,0 +1,9 @@
+{
+  "name": "AI Image Colorization",
+  "short_name": "Image Colorizer",
+  "description": "AI-powered image colorization using U-Net model",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6"
+} 

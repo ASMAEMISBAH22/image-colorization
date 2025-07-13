@@ -13,6 +13,13 @@ RUN npm ci
 # Copy source code
 COPY . .
 
+# Ensure public directory exists and create basic files
+RUN mkdir -p public && \
+    echo 'User-agent: *' > public/robots.txt && \
+    echo 'Allow: /' >> public/robots.txt && \
+    echo '{"name":"AI Image Colorization","short_name":"Image Colorizer","description":"AI-powered image colorization using U-Net model","start_url":"/","display":"standalone","background_color":"#ffffff","theme_color":"#3b82f6"}' > public/manifest.json && \
+    echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>' > public/favicon.svg
+
 # Build the application
 RUN npm run build
 

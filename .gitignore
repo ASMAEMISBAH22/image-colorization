@@ -103,7 +103,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public
 
 # Storybook build outputs
 .out
@@ -116,7 +116,7 @@ temp/
 # Uploaded and processed images
 backend/uploads/
 backend/outputs/
-frontend/public/uploads/
+
 
 # Model files
 models/*.pth
