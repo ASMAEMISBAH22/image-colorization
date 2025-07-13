@@ -10,9 +10,9 @@ import logging
 from typing import Dict, Any
 import json
 
-from models.unet_model import UNetColorizer
-from utils.image_processing import process_image, save_image
-from utils.config import settings
+from backend.models.unet_model import UNetColorizer
+from backend.utils.image_processing import process_image, save_image
+from backend.utils.config import settings
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
