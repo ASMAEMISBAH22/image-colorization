@@ -93,10 +93,10 @@ docker-compose up --build
 ```
 
 ## API Endpoints
-
+ 
 - `POST /api/colorize` - Upload and colorize an image
 - `GET /api/health` - Health check
-- `GET /api/models` - List available models
+- `GET /api/models` - List available models 
 
 ## Model Information
 
@@ -111,8 +111,4 @@ The U-Net model is trained on a large dataset of grayscale and color image pairs
 2. Create a feature branch
 3. Make your changes
 4. Add tests if applicable
-5. Submit a pull request
-
-## License
-
-MIT License - see LICENSE file for details 
+5. Submit a pull request 
