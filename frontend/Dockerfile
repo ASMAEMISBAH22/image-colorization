@@ -33,10 +33,7 @@ WORKDIR /app
 # Copy necessary files from builder
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
-
-# Copy public directory (create if it doesn't exist)
-RUN mkdir -p public
-COPY --from=builder /app/public/* ./public/ 2>/dev/null || true
+COPY --from=builder /app/public ./public
 
 # Set ownership
 RUN chown -R nextjs:nodejs /app
