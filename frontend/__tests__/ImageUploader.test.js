@@ -72,7 +72,7 @@ describe('ImageUploader', () => {
       />
     );
 
-    const dropzone = screen.getByText(/Drag & drop an image here/).closest('div');
+    const dropzone = screen.getByTestId('dropzone');
     expect(dropzone).toHaveClass('opacity-50');
   });
 
@@ -85,7 +85,7 @@ describe('ImageUploader', () => {
       />
     );
 
-    const dropzone = screen.getByText(/Drag & drop an image here/).closest('div');
+    const dropzone = screen.getByTestId('dropzone');
     expect(dropzone).toHaveClass('opacity-50');
   });
 }); 
