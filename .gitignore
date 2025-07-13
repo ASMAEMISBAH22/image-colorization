@@ -22,18 +22,11 @@ wheels/
 *.egg
 MANIFEST
 
-# PyTorch
+# PyTorch model files
 *.pth
 *.pt
 *.ckpt
 *.safetensors
-
-# Virtual environments
-venv/
-env/
-ENV/
-env.bak/
-venv.bak/
 
 # Environment variables
 .env
@@ -71,13 +64,6 @@ pids
 *.pid
 *.seed
 *.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-*.lcov
-
-# nyc test coverage
-.nyc_output
 
 # Dependency directories
 jspm_packages/
@@ -142,22 +128,6 @@ models/*.safetensors
 *.db
 *.sqlite
 *.sqlite3
-
-# Docker
-.dockerignore
-
-# Kubernetes
-*.yaml
-*.yml
-!docker-compose.yml
-
-# Terraform
-*.tfstate
-*.tfstate.*
-.terraform/
-
-# Monitoring
-monitoring/data/
 
 # SSL certificates
 *.pem
