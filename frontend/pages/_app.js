@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
         <title>AI Image Colorization</title>
         <meta name="description" content="AI-powered image colorization using U-Net model" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
       
       <Component {...pageProps} />
