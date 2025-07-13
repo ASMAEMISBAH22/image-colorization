@@ -1,6 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-from main import app
+from backend.main import app
 import os
 import tempfile
 from PIL import Image
