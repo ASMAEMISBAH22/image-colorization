@@ -42,6 +42,7 @@ const ImageUploader = ({ onImageUpload, isProcessing, disabled }) => {
         className={`dropzone ${isDragActive ? 'dropzone-active' : ''} ${
           disabled || isProcessing ? 'opacity-50 cursor-not-allowed' : ''
         }`}
+        data-testid="dropzone"
       >
         <input {...getInputProps()} />
         
