@@ -20,6 +20,7 @@ const nextConfig = {
   experimental: {
     appDir: false,
   },
+  output: 'standalone',
 };
 
 module.exports = nextConfig; 
