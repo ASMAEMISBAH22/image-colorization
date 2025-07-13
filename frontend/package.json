@@ -33,6 +33,7 @@
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/jest-dom": "^6.1.4"
   },
