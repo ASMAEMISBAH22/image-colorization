@@ -6,6 +6,8 @@ import tempfile
 from PIL import Image
 import io
 
+from backend.utils.image_processing import process_image, validate_image
+
 client = TestClient(app)
 
 def create_test_image():
@@ -85,31 +87,25 @@ def test_download_endpoint():
 @pytest.mark.asyncio
 async def test_process_image():
     """Test image processing function"""
-    from utils.image_processing import process_image, validate_image
-    
+    # from backend.utils.image_processing import process_image, validate_image  # already imported at top
     # Create a temporary test image
     with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp_file:
         img = Image.new('L', (100, 100), color=128)
         img.save(tmp_file.name, format='JPEG')
-        
         # Test validation
         assert validate_image(tmp_file.name) == True
-        
         # Clean up
         os.unlink(tmp_file.name)
 
 def test_image_validation():
     """Test image validation"""
-    from utils.image_processing import validate_image
-    
+    # from backend.utils.image_processing import validate_image  # already imported at top
     # Test with non-existent file
     assert validate_image("nonexistent.jpg") == False
-    
     # Test with valid image
     img_bytes = create_test_image()
     with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp_file:
         tmp_file.write(img_bytes.getvalue())
         tmp_file.flush()
-        
         assert validate_image(tmp_file.name) == True
         os.unlink(tmp_file.name) 
