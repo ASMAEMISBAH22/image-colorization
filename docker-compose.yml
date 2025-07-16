@@ -6,6 +6,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    image: asmaemisbah2/image-colorization-backend:latest
     container_name: image-colorization-backend
     ports:
       - "8000:8000"
@@ -20,6 +21,14 @@ services:
     networks:
       - app-network
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1.0'
+        reservations:
+          memory: 1G
+          cpus: '0.5'
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
       interval: 30s
@@ -32,6 +41,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    image: asmaemisbah2/image-colorization-frontend:latest
     container_name: image-colorization-frontend
     ports:
       - "3000:3000"
@@ -44,6 +54,14 @@ services:
     networks:
       - app-network
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
       interval: 30s
@@ -62,7 +80,15 @@ services:
     networks:
       - app-network
     restart: unless-stopped
-    command: redis-server --appendonly yes
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+    command: redis-server --appendonly yes --maxmemory 200mb --maxmemory-policy allkeys-lru
 
   # Nginx reverse proxy (optional)
   nginx:
@@ -80,6 +106,14 @@ services:
     networks:
       - app-network
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.25'
+        reservations:
+          memory: 64M
+          cpus: '0.1'
 
   # Monitoring with Prometheus (optional)
   prometheus:
@@ -93,6 +127,14 @@ services:
     networks:
       - app-network
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
 
   # Grafana for visualization (optional)
   grafana:
@@ -111,6 +153,14 @@ services:
     restart: unless-stopped
     depends_on:
       - prometheus
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
 
 volumes:
   redis-data:
